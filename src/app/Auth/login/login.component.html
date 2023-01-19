@@ -1,0 +1,68 @@
+<main>
+	<div class="layout">
+		<!-- Start of Sign In -->
+		<div class="main order-md-1">
+			<div class="start">
+				<div class="container">
+					<div class="col-md-12">
+						<div class="content">
+							<h1>Sign in to Join-Us</h1>
+							<div class="third-party">
+								<!-- <button tooltip="Sign in with Facebook" class="btn social-btn" (click)="signInWithFacebook()">
+									<img src="../../assets/img/fb_icon.png">
+								</button> -->
+								<!-- <button tooltip="Sign in with Google" class="btn social-btn"
+									(click)="signInWithGoogle()">
+									<img src="../../assets/img/ggle_icon.png">
+								</button> -->
+								<div class="social-btn fb-login-button" data-width="250" data-size="large"
+									data-onlogin="handleFacebookAuthResponse" data-button-type="continue_with"
+									data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true">
+								</div>
+								<div class="btn social-btn" id="GoogleBtn"></div>
+							</div>
+							<p><a routerLink="/register">Don't have account? Create Account</a></p>
+							<form [formGroup]="loginForm" role="form" (ngSubmit)="SignIn()">
+								<div class="form-group">
+									<input type="email" formControlName="_name" id="inputEmail" class="form-control"
+										placeholder="Email Address"
+										[ngClass]="{'has-danger' : loginForm.get('_name').invalid && (loginForm.get('_name').touched) }">
+									<button class="btn icon"><i class="material-icons">mail_outline</i></button>
+								</div>
+								<div class="form-group">
+									<input type="password" formControlName="_password" id="inputPassword"
+										class="form-control" placeholder="Password"
+										[ngClass]="{'has-danger' : loginForm.get('_password').invalid && (loginForm.get('_password').touched) }">
+									<button class="btn icon"><i class="material-icons">lock_outline</i></button>
+								</div>
+								<a [routerLink]="['/forgotPassword']" style="float: right;">Forgot Password ?</a>
+								<button #loginBtn type="submit" class="btn button"
+									[ngClass]="{'button--loading' : showLoading | async }"
+									[disabled]="!loginForm.valid">
+									<div class="button__text">Sign In</div>
+								</button>
+								<div class="alert alert-danger mrg-top" role="alert" *ngIf="msg | async as msg">
+									{{msg}}
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End of Sign In -->
+		<!-- Start of Sidebar -->
+		<div class="aside order-md-2">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="preference">
+						<h2>Hello, Friend!</h2>
+						<p>Enter your personal details and start your journey with us today.</p>
+						<a [routerLink]="['/register']" class="btn button">Sign Up</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End of Sidebar -->
+	</div> <!-- Layout -->
+</main>

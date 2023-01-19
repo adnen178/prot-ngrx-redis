@@ -1,0 +1,11 @@
+<div id="bg-div"  style=" --bg-div : {{bg}} ">
+    <app-navbar [title]="'Header 1'" *ngIf="theme1"></app-navbar>
+    <app-navbar2 [title]="'Header 2'" *ngIf="theme2"></app-navbar2>
+    théme 1 : <input type="radio" name="t" checked #t1 value="theme 1" (click)="changeTheme()"/><br/>
+    théme 2 : <input type="radio" name="t" #t2 value="theme 2" (click)="changeTheme()"/>
+    <br/>
+    <router-outlet></router-outlet>
+    <app-navbar [title]="'footer 1'" *ngIf="theme1"></app-navbar>
+    <br/>
+    <app-navbar2 [title]="'footer 2'" *ngIf="theme2"></app-navbar2> 
+</div>
